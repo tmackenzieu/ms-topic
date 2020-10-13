@@ -1,0 +1,49 @@
+# Spring Boot configuration
+spring:
+  profiles:
+    active: test
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://35.235.79.229:5432/ftrack
+    #url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ftrack_admin
+    password: 123456
+    continue-on-error: true
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    open-in-view: false
+    generate-ddl: false
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        jdbc:
+          batch_size: 500
+          batch_versioned_data: true
+          time_zone: UTC
+        order_inserts: true
+
+# Logger configuration
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: INFO
+    org.hibernate: TRACE
+
+# Server configuration
+server:
+  port: 8080
+  sessionTimeout: 30
+
+#Environment variables GCP
+gcp:
+  project-id: "tracking-engine-290714"
+  tp_order: "tp-order"
+  tp_order_status: "tp-order-status"
+  lst_sale_order: "lst-sale-order"
