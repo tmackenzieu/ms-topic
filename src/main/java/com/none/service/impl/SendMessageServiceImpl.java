@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class SendMessageServiceImpl implements SendMessageService {
 
-
   TopicPublisher topicPublisher;
   GcpProperties gcpProperties;
   Utils utils;
@@ -36,6 +35,6 @@ public class SendMessageServiceImpl implements SendMessageService {
     Message message = utils
         .getPublishMessage(Actions.MODIFY.getValue(), CURRENT_NAME_CLASS,
             messageDTO);
-    topicPublisher.send(utils.convertToJson(message), gcpProperties.getTp_order_status());
+    topicPublisher.send(utils.convertToJson(message), gcpProperties.getTopic_name());
   }
 }

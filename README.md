@@ -14,19 +14,35 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 _Que cosas necesitas para instalar el software y como instalarlas_
 
 ```
-Da un ejemplo
+Java 11
+Maven
 ```
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
+* Instalar dependencias con el comando ```mvn clean install``` 
 
 
-## Despliegue 📦
+## Uso 📦
 
-_Agrega notas adicionales sobre como hacer deploy_
+* Crear en Google Cloud, una cuenta, crear un tópico y un subscriptor _
+* Ir a la carpeta resources -> `application.yml` 
+  * Luego modificar  los siguientes valores con los que creaste el tópico. 
+    * project-id: "{{project_id}}"
+    * topic-topic_name: "{{topic_name}}"
+
+Ejecutar el proyecto, este se levantará en localhost:8080.
+
+Curl para enviar mensaje a un tópico de ejemplo:
+
+```curl
+curl --location --request POST 'http://localhost:8080/send/message' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "message": "Hello Taby"
+}'
+```
+
 
 ## Construido con 🛠️
 

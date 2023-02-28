@@ -10,8 +10,5 @@ import org.springframework.stereotype.Component;
 public class GcpProperties {
 
   private String project_id;
-  private String tp_order;
-  private String tp_order_status;
-  private String lst_sale_order;
-
+  private String topic_name;
 }
